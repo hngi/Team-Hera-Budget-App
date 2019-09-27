@@ -2,29 +2,29 @@
 
 /* work on the styling  @developerRuq @Goldin @thrive */
 
-.budget-logo{
+.budget-logo {
   margin-left: -10%;
   width: 150px;
   height: auto;
 }
-.side-pane{
+.side-pane {
   margin-top: 2%;
   padding-left: 2%;
 }
-.budget-board{
+.budget-board {
   background: linear-gradient(180deg, #3264b0 0%, #438afc 92.12%);
   padding: 50px;
 }
-.budget-panel{
+.budget-panel {
   padding-top: 40px;
 }
-h3{
+h3 {
   color: #fff;
   font-weight: 600;
   font-size: 210%;
   text-decoration: bolder;
 }
-.name-tag{
+.name-tag {
   background-color: #fff;
   color: #000;
   font-weight: 600;
@@ -33,84 +33,83 @@ h3{
   border-radius: 5px;
   font-size: 12px;
 }
-.user-img{
+.user-img {
   width: 30px;
   height: auto;
   border-radius: 50%;
-
 }
-.card{
+.card {
   border-radius: 15px;
   width: 120%;
   padding: 10px;
 }
-h5{
+h5 {
   font-weight: 600;
   margin-left: 20px;
   color: linear-gradient(180deg, #3264b0 0%, #438afc 92.12%) !important;
   font-size: 180%;
-
 }
-.naira-symbol{
+.naira-symbol {
   width: 40px;
   height: auto;
 }
-.submit-btn{
+.submit-btn {
   background: linear-gradient(180deg, #3264b0 0%, #438afc 92.12%) !important;
   border-radius: 30px;
   font-weight: 600;
 }
-.priority{
-  font-size: 12px;
+.priority {
+  font-size: 14px;
 }
-.budget-list-card{
+.budget-list-card {
   padding-left: 10%;
   padding-right: 10%;
-
 }
-.budget-icon{
+.budget-icon {
   background: linear-gradient(180deg, #3264b0 0%, #438afc 92.12%);
   border-radius: 50%;
   padding: 6px;
   text-transform: uppercase;
 }
-th{
+th {
   color: linear-gradient(180deg, #3264b0 0%, #438afc 92.12%);
   text-transform: uppercase !important;
   font-weight: 600;
 }
-li{
+li {
   list-style: none;
 }
-.dashboard_icon{
+.dashboard_icon {
   width: 20px;
   height: auto;
   filter: grayscale(1);
 }
-.dashboard_link{
+.dashboard_link {
   text-decoration: none;
   color: #777;
   font-weight: 600;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
 }
-.active, .dashboard_link:hover{
+.active,
+.dashboard_link:hover {
   text-decoration: none;
   border-bottom: 2px solid #3264b0;
-
 }
-.small_link{
+.small_link {
   margin-left: 30px !important;
 }
-.dashboad_nav li{
+.dashboad_nav li {
   line-height: 1.9;
 }
 
-#budgetResponseMessage, #expenseResponseMessage{
+#budgetResponseMessage,
+#expenseResponseMessage {
   color: red;
   font-size: 10px;
 }
-#addedExpenseResponseMessage, #addedBudgetResponseMessage{
+#addedExpenseResponseMessage,
+#addedBudgetResponseMessage {
   color: green;
   font-size: 10px;
 }
