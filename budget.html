@@ -1,15 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/css/budget.css" />
-    <title>Budget App</title>
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- seo meta tags -->
+      <meta name="description" content="Hera: a planned spending">
+        <meta name="author" content="Akunna Message">
+        <meta name="docsearch:language" content="en">
+        <meta name="docsearch:version" content="4.3">
+      <!-- Animate CSS -->
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <title>Hera: plan your spending</title>
   </head>
   <body>
-    /* work on the html @message @developerRuq @Goldin @thrive */
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/logo.svg" width="auto" height="70">
+        </div>
 
-    <script src="/JavaScript/budget.js"></script>
+        <ul class="list-unstyled components">
+          <li class="active">
+            <a href="#">
+              <i class="fas fa-cubes"></i>
+                Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-coins"></i>
+                Budget
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">
+                      <i class="far fa-dot-circle"></i>
+                      Create Category
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      <i class="far fa-dot-circle"></i>
+                      New Budget
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      <i class="far fa-dot-circle"></i>
+                      Edit Budget
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      <i class="far fa-dot-circle"></i>
+                      Manage Budget
+                    </a>
+                </li>
+            </ul>
+            <a href="#">
+              <i class="fas fa-cogs"></i>
+                Settings
+            </a>
+            <a href="#">
+              <i class="fas fa-power-off"></i>
+                Logout
+            </a>
+          </li>
+        </ul>
+    </nav>
+    <!-- Page Content -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg px-lg-0">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary mr-2">
+            <i class="fas fa-align-left"></i>
+          </button>
+          <h4 class="text-white ml-2">NEW BUDGET</h4>
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item notification shadow-sm">
+              <a class="nav-link btn btn-outline badge-notification p-1" data-badge="23" href=""><i class="fas fa-bell"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="">
+        <section class="">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-2 shadow-sm border-0 bg-white">
+                  <div class="card-header py-2">
+                    <h5 class="my-1  text-hera">Income</h5>
+                  </div>
+                  <div class="card-body">
+                    <form class="form-signin">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-white border-right-0 rounded-left" id="basic-addon1"><i class="fas fa-wallet"></i></span>
+                        </div>
+                        <input type="text" name="username" id="inputIncome" class="form-control border-left-0" placeholder="Enter income" aria-label="Income" aria-describedby="basic-addon1" required>
+                      <div class="feedback"></div>
+                      </div>
+                      <button class="btn btn-primary btn-block rounded-pill" type="submit" id="submitIncome">
+                        <i class="fas fa-gavel"></i> Submit</button>
+                  </form>
+                  </div>
+                </div>
+                <div class="card shadow-sm border-0 bg-white mb-2">
+                  <div class="card-header py-2">
+                    <h5 class="my-1  text-hera">Enter Budget Item</h5>
+                  </div>
+                  <div class="card-body">
+                    <form class="form-signin">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-white border-right-0 rounded-left" id="basic-addon1"><i class="fas fa-money-bill-alt"></i></span>
+                        </div>
+                        <input type="text" name="itemPrice" id="itemPrice" class="form-control border-left-0" placeholder="Item price" aria-label="Item Price" aria-describedby="basic-addon1" required>
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-white border-right-0 rounded-left" id="basic-addon"><i class="fas fa-file-signature"></i></span>
+                        </div>
+                        <input type="text" name="itemName" id="inputItem" class="form-control border-left-0" placeholder="Item Name" aria-label="Item name" aria-describedby="basic-addon" required>
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-white border-right-0 rounded-left" id="basic-addon1"><i class="fas fa-sitemap"></i></span>
+                        </div>
+                        <select id="selectPriority" class="form-control border-left-0" aria-label="Select Priority" aria-describedby="basic-addon1" required>
+                          <option selected disabled>Priority</option>
+                          <option>...</option>
+                        </select>
+                      </div>
+                      <button class="btn btn-primary btn-block rounded-pill" type="submit" id="loginBtn">
+                        <i class="fas fa-cart-plus"></i> Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card shadow-sm border-0 mb-2 bg-white">
+                  <div class="card-header py-0">
+                    <table class="table table-borderless table-responsive my-0">
+                    <thead class="border-0 text-hera">
+                        <tr>
+                          <th scope="col" width="20%"><i class="fas fa-sort-numeric-down"></i></th>
+                          <th scope="col" width="30%">Item</th>
+                          <th scope="col" width="20%">Item Priority</th>
+                          <th scope="col" width="30%">&#8358; Amount</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="card-body py-0">
+                    <table class="table table-borderless table-responsive">
+                      <tbody width="100%">
+                        <tr class="border-bottom">
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>1</td>
+                          <td>&#8358; 1003</td>
+                        </tr>
+                        <tr class="border-bottom">
+                          <th scope="row">2</th>
+                          <td>Larry</td>
+                          <td>4</td>
+                          <td>&#8358; 1234</td>
+                        </tr>
+                        <tr class="border-bottom">
+                          <th scope="row">3</th>
+                          <td>Jacob</td>
+                          <td>5</td>
+                          <td>&#8358; 3434</td>
+                        </tr>
+                        <tr class="border-bottom">
+                          <th scope="row">4</th>
+                          <td>Larry</td>
+                          <td>3</td>
+                          <td>&#8358; 1234</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Jacob</td>
+                          <td>2</td>
+                          <td>&#8358; 3434</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="float-right">
+                  <button class="btn btn-default bg-white rounded-pill" type="submit" id="loginBtn">
+                   Submit <i class="fas fa-gavel"></i>
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>     
+      
+    
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" type="text/javascript"></script>
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/budget.js" type="text/javascript"></script>
   </body>
 </html>
