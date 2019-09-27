@@ -30,7 +30,7 @@ addBudgetForm.addEventListener("submit", event => {
     setTimeout(function() {
       budgetResponseMessage.remove();
       addBudgetForm.reset();
-    }, 2000);
+    }, 3000);
     // setTimeout(function () {
     //   budgetResponseMessage.append('Please, enter a valid budget.'), 1000);
     // budgetResponseMessage.append('Please, enter a valid budget.');
@@ -59,12 +59,18 @@ addExpenseForm.addEventListener("submit", event => {
 
   if (expenseName.length < 2 || expenseName === "") {
     expenseResponseMessage.append("Please, enter a valid budget title.");
+    setTimeout(function () {
+      expenseResponseMessage.remove();
+      
+    }, 3000);
   } else {
     const newExpense = { expenseName, priority };
     expenseArray.push(newExpense);
     expenseResponseMessage.textContent = null;
     // Send Success MEssage
-    addedExpenseResponseMessage.append(`Added "${expenseName}" to Budget.`);
+    addedExpenseResponseMessage.append(
+      `Added "${expenseName}" with priority of ${priority} to Budget.`
+    );
     // console.log(expenseArray);
 
     expenseName = document.querySelector("#expensename");
@@ -73,7 +79,7 @@ addExpenseForm.addEventListener("submit", event => {
 
     setTimeout(function() {
       addedExpenseResponseMessage.textContent = null;
-    }, 1000);
+    }, 3000);
   }
 });
 
