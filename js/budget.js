@@ -2,19 +2,20 @@
 window.onload = () => {
   let editableBudgets = document.getElementsByClassName("editableBudget");
   console.log(editableBudgets);
-    for(i = 0; i < editableBudgets.length; i++){
-      editableBudgets.item(i).addEventListener("keyup",(event) => {
-        if(event.keyCode === 13){
-          //event.preventDefault();
-          console.log("works!");
-          }
-          console.log("hey");
-      });
-    
-    }
-}
+
+  for (i = 0; i < editableBudgets.length; i++) {
+    editableBudgets.item(i).addEventListener("keyup", event => {
+      if (event.keyCode === 13) {
+        //event.preventDefault();
+        console.log("works!");
+      }
+      console.log("hey");
+    });
+  }
+};
 const addBudgetForm = document.getElementById("budgetform");
-const budgetResponseMessage = document.getElementById("budgetResponseMessage");  //contains please enter a valid budget message
+const budgetResponseMessage = document.getElementById("budgetResponseMessage"); //contains please enter a valid budget message
+
 const expenseResponseMessage = document.getElementById(
   "expenseResponseMessage"
 );
@@ -27,7 +28,7 @@ const addedBudgetResponseMessage = document.getElementById(
 const addExpenseForm = document.querySelector("#expenseform");
 const calculateBtn = document.getElementById("calculate");
 const table = document.getElementById("table");
-const tbody= document.getElementById("tbody");
+const tbody = document.getElementById("tbody");
 
 const expenseArray = [];
 let Budget = {};
@@ -81,10 +82,9 @@ addExpenseForm.addEventListener("submit", event => {
     // Send Success MEssage
     addedExpenseResponseMessage.append(`Added "${expenseName}" to Budget.`);
 
-
     // Render table here
     const tr = document.createElement("tr");
-    
+
     const _id = expenseName.trim().slice(0, 2);
     tr.innerHTML = `
     <td> <span class="budget-icon"> ${_id}  </span> </td>
@@ -191,15 +191,20 @@ const renderExpenses = (array, balance) => {
     const newTD = document.createElement("td");
     newTD.appendChild(document.createTextNode("₦ "));
     const newInput = document.createElement("input");
-    newInput.setAttribute("type","text");
-    newInput.setAttribute("class","editableBudget");
-    newInput.setAttribute("value",`${array[expense].fundAllocated}`);
-    newInput.setAttribute("keyup","editBudget()");
+
+    newInput.setAttribute("type", "text");
+    newInput.setAttribute("class", "editableBudget");
+    newInput.setAttribute("value", `${array[expense].fundAllocated}`);
+    newInput.setAttribute("keyup", "editBudget()");
+
     let originalprice = document.createAttribute("data-originalprice");
     originalprice.value = `${array[expense].fundAllocated}`;
     newInput.setAttributeNode(originalprice);
     newTD.appendChild(newInput);
-    newInput.addEventListener("keyup",editBudget);
+
+    newInput.addEventListener("keyup", editBudget);
+
+
 
     let deleteButton = document.createElement("button");
     deleteButton.setAttribute("class","delete btn bg-primary ml-1");
@@ -235,7 +240,7 @@ const renderExpenses = (array, balance) => {
     });*/
     //<td> id = "inputHolder"> ₦ <input type = "text" class = "editableBudget" value = "${array[expense].fundAllocated}"></td>
     //<hr>
-    
+
     /*const newInput = document.createElement("input");
     newInput.setAttribute("type","text");
     newInput.setAttribute("class","editableBudget");
@@ -244,7 +249,7 @@ const renderExpenses = (array, balance) => {
     .appendChild(newInput);
     newInput.addEventListener("keyup",editBudget);*/
 
-    
+
     // console.log(tr);
 
     
@@ -255,7 +260,9 @@ const renderExpenses = (array, balance) => {
   }
   if (balance) {
     const tr = document.createElement("tr");
-    tr.setAttribute("id","balanceTR");
+
+    tr.setAttribute("id", "balanceTR");
+
 
     tr.innerHTML = `
     <td> </td>
@@ -291,52 +298,124 @@ const roundDown = (num, precision) => {
 //  the code above is for the nav bar
 
 
-
-const editBudget = (event) => {
-  
-  if(event.keyCode === 13){
-    let originalPrice = parseInt((event.target.dataset.originalprice).replace(/,/gi,""));  //works
-    let modifiedValue = parseInt((event.target.value).replace(/,/gi,""));
+const editBudget = event => {
+  if (event.keyCode === 13) {
+    let originalPrice = parseInt(
+      event.target.dataset.originalprice.replace(/,/gi, "")
+    ); //works
+    let modifiedValue = parseInt(event.target.value.replace(/,/gi, ""));
     let balance = document.getElementById("balance");
    /* console.log(originalPrice);
     console.log(modifiedValue);*/
     let balanceValue;
 
-   
-    
-
     console.log("works!");
-  
+
     console.log("hey");
-    if(balance === null){
-        balanceValue = 0;
-        const tr = document.createElement("tr");
-        tr.setAttribute("id","balanceTR");
-        tr.innerHTML = `
+    if (balance === null) {
+      balanceValue = 0;
+      const tr = document.createElement("tr");
+      tr.setAttribute("id", "balanceTR");
+      tr.innerHTML = `
+
         <td> </td>
         <td> </td>
         <td> <b> BALANCE </b>  </td>
         <td >₦ <span id = "balance">${balanceValue}</span></td>`;
-    
-        table.append(tr);
-    }
-    else {
-        // Do nothing ;
-        
-        balanceValue = parseInt(balance.innerHTML);  //works
+
+
+      table.append(tr);
+    } else {
+      // Do nothing ;
+
+      balanceValue = parseInt(balance.innerHTML); //works
     }
 
     //console.log(balanceValue);
-    
 
-    document.getElementById("balance").innerHTML = balanceValue + (originalPrice - modifiedValue);
-    event.target.dataset.originalprice = event.target.value; 
-    
+    document.getElementById("balance").innerHTML =
+      balanceValue + (originalPrice - modifiedValue);
+    event.target.dataset.originalprice = event.target.value;
+
     //console.log(typeof document.getElementById("balance").innerHTML);
   }
+};
 
-}
+const chartfn = function() {
+  const labels = [];
+  const expenseData = [];
+  const color = [];
 
+  for (var i = 0; i < expenseArray.length; i += 1) {
+    labels.push(expenseArray[i].expenseName);
+    color.push("#" + Math.floor(Math.random() * 16777215).toString(16));
+  }
+  // console.log(expenseArray.fundAllocated);
+  for (var i = 0; i < expenseArray.length; i += 1) {
+    expenseData.push(
+      Number(expenseArray[i].fundAllocated.replace(/[^0-9.-]+/g, ""))
+    );
+  }
+
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: "pie",
+
+    // The data for our dataset
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Budget Allocation",
+          backgroundColor: color,
+          borderColor: "#fff",
+          borderWidth: 5,
+          data: expenseData
+        }
+      ]
+    },
+
+    // Configuration options go here
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        text: "Budget Allocation Chart",
+        fontSize: 15
+      },
+      legend: {
+        position: "bottom",
+        fontSize: "16"
+      },
+      plugins: {
+        datalabels: {
+          color: "#fff",
+          anchor: "end",
+          borderRadius: 25,
+          borderWidth: 2,
+          align: "start",
+          borderColor: "#fff",
+          font: {
+            weight: "bold",
+            size: "10"
+          },
+          formatter: (value, ctx) => {
+            let sum = 0;
+            let dataArr = ctx.chart.data.datasets[0].data;
+            dataArr.map(data => {
+              sum += data;
+            });
+            let percentage = ((value * 100) / sum).toFixed(2) + "%";
+            return percentage;
+          }
+        }
+      }
+    }
+  });
+};
+const dchart = document.querySelector(".dchart");
+dchart.addEventListener("click", chartfn);
 
 const deleteBudget = (event) => {
   let relevantRow = event.currentTarget.parentNode.parentNode;
