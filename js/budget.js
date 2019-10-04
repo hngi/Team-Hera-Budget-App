@@ -40,7 +40,7 @@ addBudgetForm.addEventListener("submit", event => {
   event.preventDefault();
   userBudget = document.getElementById("userbudget").value;
 
-  if (userBudget <= 0 || userBudget === "" || userBudget === null) {
+  if (userBudget <= 0 || userBudget === "" || userBudget === null ) {
     budgetResponseMessage.append("Please, enter a valid budget.");
     setTimeout(function() {
       budgetResponseMessage.remove();
@@ -96,7 +96,7 @@ addExpenseForm.addEventListener("submit", event => {
 
     console.log(tr);
 
-    table.append(tr);
+    tbody.appendChild(tr);
 
     // console.log(expenseArray);
 
@@ -162,9 +162,9 @@ calculateBtn.addEventListener("click", calculateBudget);
 
 
 const renderExpenses = (array, balance) => {
-  console.log(tbody)
+  //console.log(tbody)
 
-  const thead = `
+  /*const thead = `
   <thead  class="thead-light">
   <tr>
                           <th scope="col"></th>
@@ -175,9 +175,9 @@ const renderExpenses = (array, balance) => {
                         </tr>
                         
                       </thead>
-  `
-  table.innerHTML = " ";
-  table.innerHTML = thead
+  `*/
+  tbody.innerHTML = " ";
+  //table.innerHTML = thead
   for (expense in array) {      
     const tr = document.createElement("tr");
     // let _id = array[expense].expenseName.slice(0 , 1);
@@ -185,8 +185,7 @@ const renderExpenses = (array, balance) => {
     tr.innerHTML = `
     <td> <span class="budget-icon"> ${array[expense]._id}  </span> </td>
     <td> ${array[expense].expenseName}  </td>
-    <td> ${array[expense].priority}  </td>
-    
+    <td> ${array[expense].priority}  </td>  
     `;
 
     const newTD = document.createElement("td");
@@ -202,10 +201,28 @@ const renderExpenses = (array, balance) => {
     newTD.appendChild(newInput);
     newInput.addEventListener("keyup",editBudget);
 
-    tr.appendChild(newTD);
+    let deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class","delete btn bg-primary ml-1");
+    let deleteIcon = document.createElement("i");
+    deleteIcon.setAttribute("class","fa fa-trash p-100");
+    deleteIcon.style.color = "#fff";
+    deleteButton.appendChild(deleteIcon);
+    newTD.appendChild(deleteButton);
+    deleteButton.addEventListener("click",deleteBudget,true);
+      
+    
 
+    /*newTD.innerHTML += `
+                    <button class = "delete btn bg-primary"><i class="fa fa-trash" style = "color: #fff"></i></button>`;
+    let allDeleteButtons = document.getElementsByClassName("delete");
+      for(i = 0; i < allDeleteButtons.length; i++){
+        allDeleteButtons[i].addEventListener("click",deleteBudget);
+      }*/
+    tr.appendChild(newTD);
     hr = document.createElement("hr");
     tr.appendChild(hr);
+    
+    tbody.appendChild(tr);
 
 
     /*let editableBudgets = document.getElementsByClassName("editableBudget");
@@ -230,7 +247,7 @@ const renderExpenses = (array, balance) => {
     
     // console.log(tr);
 
-    table.append(tr);
+    
     // _id = " "
     // alert(balance)
     // console.log(array[expense]);
@@ -282,8 +299,8 @@ const editBudget = (event) => {
     let modifiedValue = parseInt((event.target.value).replace(/,/gi,""));
     let balance = document.getElementById("balance");
    /* console.log(originalPrice);
-    console.log(modifiedValue);
-    let balanceValue;*/
+    console.log(modifiedValue);*/
+    let balanceValue;
 
    
     
@@ -319,5 +336,67 @@ const editBudget = (event) => {
   }
 
 }
+
+
+const deleteBudget = (event) => {
+  let relevantRow = event.currentTarget.parentNode.parentNode;
+  console.log(relevantRow);
+  //console.log(relevantRow); //tr
+  let inputValue = parseInt((event.currentTarget.previousSibling.value).replace(/,/gi,""));
+  let balance = document.getElementById("balance");
+  let balanceValue;
+  if(balance === null){
+    balanceValue = 0;
+    const tr = document.createElement("tr");
+    tr.setAttribute("id","balanceTR");
+    tr.innerHTML = `
+    <td> </td>
+    <td> </td>
+    <td> <b> BALANCE </b>  </td>
+    <td >₦ <span id = "balance">${balanceValue}</span></td>`;
+
+    table.append(tr);
+  }
+  else {
+    // Do nothing ;
+    
+    balanceValue = parseInt(balance.innerHTML);  //works
+  }
+  console.log(inputValue);
+  relevantRow.style.display = "none";
+  document.getElementById("balance").innerHTML = inputValue + parseInt(document.getElementById("balance").innerHTML);
+  for(i = 0;i < tbody.children.length; i++){
+    if(tbody.children[i].isSameNode(relevantRow) && tbody.children[i].isEqualNode(relevantRow)){
+      expenseArray.splice(i,1);
+    }
+    else{
+      console.log("no")
+    }
+
+  }
+  console.log(tbody.childElementCount);
+
+  
+ 
+  
+  
+  
+
+  //console.log(`relevant index is ${Array.from(tbody.children)}`);
+ 
+  
+  //console.log(expenseArray);
+  tbody.removeChild(relevantRow);
+  
+  
+  if(tbody.childElementCount === 0){
+    balance.parentNode.parentNode.style.display = "none";
+  }
+  
+}
+
+
+
+
 
 
