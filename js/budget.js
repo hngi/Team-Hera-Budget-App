@@ -42,6 +42,7 @@ addBudgetForm.addEventListener("submit", event => {
   userBudget = document.getElementById("userbudget").value;
 
   if (userBudget <= 0 || userBudget === "" || userBudget === null ) {
+    budgetResponseMessage.textContent = null;
     budgetResponseMessage.append("Please, enter a valid budget.");
     setTimeout(function() {
       budgetResponseMessage.remove();
@@ -74,6 +75,7 @@ addExpenseForm.addEventListener("submit", event => {
   console.log(priority);
 
   if (expenseName.length < 2 || expenseName === "") {
+    expenseResponseMessage.textContent = null;
     expenseResponseMessage.append("Please, enter a valid budget title.");
   } else {
     const newExpense = { expenseName, priority };
