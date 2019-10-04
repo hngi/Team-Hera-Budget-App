@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once "config/db_config.php";
 
   if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
@@ -16,6 +17,17 @@ require_once "config/db_config.php";
   $sql = "SELECT * FROM profile WHERE id = $user_id";
   $row = $dbh->query($sql);
   $result = mysqli_fetch_assoc($row);
+
+// set timeout period in seconds
+$inactive = 60;
+// check to see if $_SESSION['timeout'] is set
+if(isset($_SESSION['timeout']) ) {
+	$session_life = time() - $_SESSION['timeout'];
+	if($session_life > $inactive)
+        { session_destroy(); header("Location: logout.php"); }
+}
+$_SESSION['timeout'] = time();
+
 
 ?>
 

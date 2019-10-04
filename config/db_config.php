@@ -1,3 +1,4 @@
+
 <?php
     /*
  * All database connection variables
@@ -26,3 +27,4 @@ if (mysqli_connect_error()) {
 //define("DB_DATABASE", "findakit_hera"); // database name
 //define("DB_HOST", "localhost"); // db server
 ?>
+

@@ -1,3 +1,4 @@
+
 <?php
 function renderForm($email, $password, $error)
 {	
