@@ -9,6 +9,7 @@ define("DB_DATABASE", "hera"); // database name
 define("DB_HOST", "localhost"); // db server
 
 
+//online config details for dashboard (TO UPLOAD PROFILE IMAGE)
 $dbh = mysqli_connect('localhost', 'findakit_hera', 'TeamHera123', 'findakit_hera');
 
 // this check for errors and if there are any, it kills the database so everything stop working
@@ -17,6 +18,7 @@ if (mysqli_connect_error()) {
   die();
 
 }
+
 
 //online config details
 //define("DB_USER", "findakit_hera"); // db user

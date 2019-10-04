@@ -30,7 +30,7 @@ require_once "config/db_config.php";
                 $fileDestination = 'assets/'.$fileNewName;
                 move_uploaded_file($fileTmpName, $fileDestination);//This function uploads the file
 
-                $sql = "INSERT INTO profile (userID, image) VALUES ('$user_id', '$fileDestination')";
+                $sql = "INSERT INTO profile (id, image) VALUES ('$user_id', '$fileDestination')";
                 $result = $dbh->query($sql);
                 header("Location: dashboard.php?uploadsuccess");
 
