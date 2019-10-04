@@ -1,3 +1,4 @@
+
 <?php
     /*
  * All database connection variables
@@ -13,4 +14,5 @@ define("DB_HOST", "localhost"); // db server
 //define("DB_PASSWORD", "TeamHera123"); // db password (mention your db password here)
 //define("DB_DATABASE", "findakit_hera"); // database name
 //define("DB_HOST", "localhost"); // db server
+
 ?>
