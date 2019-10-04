@@ -2,6 +2,7 @@
 window.onload = () => {
   let editableBudgets = document.getElementsByClassName("editableBudget");
   console.log(editableBudgets);
+
   for (i = 0; i < editableBudgets.length; i++) {
     editableBudgets.item(i).addEventListener("keyup", event => {
       if (event.keyCode === 13) {
@@ -14,6 +15,7 @@ window.onload = () => {
 };
 const addBudgetForm = document.getElementById("budgetform");
 const budgetResponseMessage = document.getElementById("budgetResponseMessage"); //contains please enter a valid budget message
+
 const expenseResponseMessage = document.getElementById(
   "expenseResponseMessage"
 );
@@ -21,6 +23,7 @@ const addedBudgetResponseMessage = document.getElementById(
   "addedBudgetResponseMessage"
 );
 // const addedExpenseResponseMessage document.getElementById('addedExpenseResponseMessage');
+
 
 const addExpenseForm = document.querySelector("#expenseform");
 const calculateBtn = document.getElementById("calculate");
@@ -157,6 +160,7 @@ const calculateBudget = async () => {
 // Start Calculating
 calculateBtn.addEventListener("click", calculateBudget);
 
+
 const renderExpenses = (array, balance) => {
   console.log(tbody);
 
@@ -173,8 +177,10 @@ const renderExpenses = (array, balance) => {
                       </thead>
   `;
   table.innerHTML = " ";
+
   table.innerHTML = thead;
   for (expense in array) {
+
     const tr = document.createElement("tr");
     // let _id = array[expense].expenseName.slice(0 , 1);
     // console.log(array[expense]);
@@ -188,20 +194,26 @@ const renderExpenses = (array, balance) => {
     const newTD = document.createElement("td");
     newTD.appendChild(document.createTextNode("₦ "));
     const newInput = document.createElement("input");
+
     newInput.setAttribute("type", "text");
     newInput.setAttribute("class", "editableBudget");
     newInput.setAttribute("value", `${array[expense].fundAllocated}`);
     newInput.setAttribute("keyup", "editBudget()");
+
     let originalprice = document.createAttribute("data-originalprice");
     originalprice.value = `${array[expense].fundAllocated}`;
     newInput.setAttributeNode(originalprice);
     newTD.appendChild(newInput);
+
     newInput.addEventListener("keyup", editBudget);
+
+
 
     tr.appendChild(newTD);
 
     hr = document.createElement("hr");
     tr.appendChild(hr);
+
 
     /*let editableBudgets = document.getElementsByClassName("editableBudget");
     editableBudgets.item(i).addEventListener("keyup",(event) => {
@@ -222,16 +234,20 @@ const renderExpenses = (array, balance) => {
     .appendChild(newInput);
     newInput.addEventListener("keyup",editBudget);*/
 
+
     // console.log(tr);
 
     table.append(tr);
     // _id = " "
     // alert(balance)
     // console.log(array[expense]);
+    
   }
   if (balance) {
     const tr = document.createElement("tr");
+
     tr.setAttribute("id", "balanceTR");
+
 
     tr.innerHTML = `
     <td> </td>
@@ -266,6 +282,7 @@ const roundDown = (num, precision) => {
 
 //  the code above is for the nav bar
 
+
 const editBudget = event => {
   if (event.keyCode === 13) {
     let originalPrice = parseInt(
@@ -285,10 +302,12 @@ const editBudget = event => {
       const tr = document.createElement("tr");
       tr.setAttribute("id", "balanceTR");
       tr.innerHTML = `
+
         <td> </td>
         <td> </td>
         <td> <b> BALANCE </b>  </td>
         <td >₦ <span id = "balance">${balanceValue}</span></td>`;
+
 
       table.append(tr);
     } else {
@@ -382,3 +401,4 @@ const chartfn = function() {
 };
 const dchart = document.querySelector(".dchart");
 dchart.addEventListener("click", chartfn);
+
