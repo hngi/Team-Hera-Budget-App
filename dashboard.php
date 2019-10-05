@@ -218,7 +218,7 @@ $_SESSION['timeout'] = time();
                   <br>
                   <br>
                    <div>
-                    <button id="calculate" class="btn btn-primary submit-btn">CALCULATE BUDGET</button>
+                    <button id="calculate" class="dchart btn btn-primary submit-btn">CALCULATE BUDGET</button>
                   </div>
                 </div>
                 <div class="col-md-9  budget-list-card">
