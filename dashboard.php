@@ -28,9 +28,7 @@ if(isset($_SESSION['timeout']) ) {
 }
 $_SESSION['timeout'] = time();
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +65,7 @@ $_SESSION['timeout'] = time();
     <!--work on the html @message @developerRuq @Goldin @thrive-->
     <div class="container-fluid">
       <div class="row">
-      
+
       	<!-- begining of nav bar PLEASE DON'T EDIT -->
         <nav class = "col-10 mx-auto">
           <ul class="menu">
@@ -92,7 +90,7 @@ $_SESSION['timeout'] = time();
           </ul>
         </nav>
                   <!-- end of NAV BAR DONT EDIT  -->
-      
+
         <div class=" budget-board col-md-12">
           <div class="row">
             <div class="col">
@@ -140,7 +138,7 @@ $_SESSION['timeout'] = time();
                 </div>
               </div>
             </div>
-            
+
             </div>
           </div>
           <br>
