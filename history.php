@@ -1,15 +1,19 @@
-<?php	
+<?php
 session_start();
 
 	if (!(isset($_SESSION['username']) && $_SESSION['username'] != ''))
 	{ // we don't have session at all
 		header("Location:index.html");
 	}
-	
+
 	$user_id = $_SESSION['user_id'];
 	$firstname = $_SESSION['firstname'];
 	$lastname = $_SESSION['lastname'];
 	$username = $_SESSION['username'];
+
+	$sql = "SELECT * FROM profile WHERE id = $user_id";
+	$row = $dbh->query($sql);
+	$result = mysqli_fetch_assoc($row);
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +74,7 @@ session_start();
             </div>
             <div class="col-md-2">
               <div class="name-tag">
-                 <img class="user-img" src="img/profile_logo.jpg"> <?php echo $firstname . ' ' . $lastname ?>
+                 <img class="user-img" src="<?php echo $result['image']; ?>" class="profileImg" alt=""><?php echo $firstname . ' ' . $lastname ?>
               </div>
             </div>
           </div>
@@ -82,7 +86,7 @@ session_start();
       <table class="table">
         <thead class="thead-light">
           <tr>
-            
+
             <th scope="col">Date</th>
             <th scope="col">Budget List</th>
             <th scope="col">Amount</th>
@@ -127,13 +131,13 @@ session_start();
             <td> ₦122,000</td>
             <td> <img class="dashboard_icon" src="img/trash.svg"> </td>
           </tr>
-          
+
         </tbody>
       </table>
             </div>
           </div>
 
-        
+
 
         </div>
     </div>

@@ -28,9 +28,7 @@ if(isset($_SESSION['timeout']) ) {
 }
 $_SESSION['timeout'] = time();
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +65,7 @@ $_SESSION['timeout'] = time();
     <!--work on the html @message @developerRuq @Goldin @thrive-->
     <div class="container-fluid">
       <div class="row">
-      
+
       	<!-- begining of nav bar PLEASE DON'T EDIT -->
         <nav class = "col-10 mx-auto">
           <ul class="menu">
@@ -92,7 +90,7 @@ $_SESSION['timeout'] = time();
           </ul>
         </nav>
                   <!-- end of NAV BAR DONT EDIT  -->
-      
+
         <div class=" budget-board col-md-12">
           <div class="row">
             <div class="col">
@@ -106,7 +104,8 @@ $_SESSION['timeout'] = time();
 
     ?>
            <div class="dropdown">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Menu </a>
               <br>
 
@@ -140,7 +139,7 @@ $_SESSION['timeout'] = time();
                 </div>
               </div>
             </div>
-            
+
             </div>
           </div>
           <br>
@@ -219,7 +218,7 @@ $_SESSION['timeout'] = time();
                   <br>
                   <br>
                    <div>
-                         <button id="calculate" class="btn btn-primary submit-btn">CALCULATE BUDGET</button>
+                    <button id="calculate" class="btn btn-primary submit-btn">CALCULATE BUDGET</button>
                   </div>
                 </div>
                 <div class="col-md-9  budget-list-card">
@@ -231,22 +230,28 @@ $_SESSION['timeout'] = time();
                           <th scope="col">Item</th>
                           <th scope="col">Priority</th>
                           <th scope="col">Amount</th>
+
                         </tr>
                       </thead>
                       <tbody id="tbody">
+
                       </tbody>
                     </table>
+
+                    <!-- Added from budget.html -->
+                    <canvas id="myChart"></canvas>
+
                   </div>
                   <br><br><br>
                    <div>
                     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary submit-btn" data-toggle="modal" data-target="#exampleModal">
-  SAVE BUDGET
-</button>
+                <button type="button" class="btn btn-primary submit-btn" data-toggle="modal" data-target="#exampleModal">
+                  SAVE BUDGET
+                </button>
 
-<button type="button" class="btn btn-primary submit-btn" data-toggle="moda2" data-target="#exampleModa2">
-  CLEAR BUDGET
-</button>
+                <button type="button" class="btn btn-primary submit-btn" data-toggle="moda2" data-target="#exampleModa2">
+                  CLEAR BUDGET
+                </button>
 
 <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -318,6 +323,11 @@ $_SESSION['timeout'] = time();
 
 </div>
 </div>
+
+<!-- Added these two script tag from budget.html -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
