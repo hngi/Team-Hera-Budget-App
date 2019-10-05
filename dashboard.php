@@ -127,6 +127,8 @@ $_SESSION['timeout'] = time();
                     </li>
                     <li> <img class="dashboard_icon" src="img/team.svg"> <a class="dashboard_link " href="team.html">
                         The Team</a></li>
+                    <li data-toggle="modal" data-target="#coolStuffModal" style="cursor:pointer"><img class="dashboard_icon" src="img/team.svg">
+												<a class="dashboard_link" style="">Add Profile image</a></li>
                     <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
                         href="contact.html"> Contact Us</a></li>
                         <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
