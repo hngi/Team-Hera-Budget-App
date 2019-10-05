@@ -37,7 +37,8 @@ session_start();
 
     <div class="container-fluid">
       <div class="row">
-        <div class="side-pane col-sm-2 col-md-2"> <a href="index.html"><img class="budget-logo" src="img/logo normal.png"></a>
+        <div class="side-pane col-sm-2 col-md-2">
+          <img class="budget-logo" src="img/logo normal.png">
           <br>
           <br>
           <ul class="dashboad_nav">
@@ -51,7 +52,11 @@ session_start();
             </li>
             <li> <img class="dashboard_icon" src="img/team.svg"> <a class="dashboard_link "  href="team.html"> The Team</a></li>
             <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "  href="contact.html"> Contact Us</a></li>
-           <li> <img class="dashboard_icon" src="img/logout.png"> <a class="dashboard_link" href="logout.php"> Log Out</a></li>
+            <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
+              href="reviews.html"> Reviews</a></li>
+              <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
+                href="faq.html"> FAQs</a></li>
+           <li> <img class="dashboard_icon" src="img/logout.png"> <a class="dashboard_link" href="signin.html"> Log Out</a></li>
           </ul>
         </div>
 

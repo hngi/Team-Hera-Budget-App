@@ -67,6 +67,32 @@ $_SESSION['timeout'] = time();
     <!--work on the html @message @developerRuq @Goldin @thrive-->
     <div class="container-fluid">
       <div class="row">
+      
+      	<!-- begining of nav bar PLEASE DON'T EDIT -->
+        <nav class = "col-10 mx-auto">
+          <ul class="menu">
+            <li class="logo">
+              <a href="index.html"
+                ><img
+                  class="logo-image"
+                  src="https://res.cloudinary.com/cramwordplay/image/upload/v1569362293/logo_normal_iwm3jk.png"
+                  class="img-fluid"
+              /></a>
+            </li>
+            <li class="item"><a href="index.html" style = "font-weight: 600"> Home</a></li>
+
+            <li class="item"><a href="budget.html"> Dashboard</a></li>
+            <li class="item"><a href="team.html"> Meet The Team</a></li>
+            <li class="item"><a href="contact.html"> Contact Us</a></li>
+            <li class="item button"><a href="signin.html"> Login</a></li>
+            <li class="item button secondary">
+              <a href="signin.html"> Sign Up</a>
+            </li>
+            <li class="toggle"><span class="bars"></span></li>
+          </ul>
+        </nav>
+                  <!-- end of NAV BAR DONT EDIT  -->
+      
         <div class=" budget-board col-md-12">
           <div class="row">
             <div class="col">
@@ -85,27 +111,36 @@ $_SESSION['timeout'] = time();
               <br>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <div class="choked"> <a href="index.html"><img class="budget-logo" src="img/logo normal.png"></a>
-                    <br>
-                    <br>
-                    <ul class="dashboad_nav">
-                      <li> <img class="dashboard_icon" src="img/home.svg"> <a class="dashboard_link "  href="index.html"> Home</a></li>
-                      <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link active"  href=""> Dashboard</a></li>
-                      <li> <img class="dashboard_icon" src="img/budg.png"> <a class="dashboard_link" href=""> Budget</a>
-                        <ul>
-                          <li> <a  class="dashboard_link small small_link" href=""> New Budget</a> </li>
-                          <li> <a class="dashboard_link small small_link" href="history.php" > Budget History</a> </li>
-                        </ul>
-                      </li>
-                      <li> <img class="dashboard_icon" src="img/team.svg"> <a class="dashboard_link"  href="team.html"> The Team</a></li>
-                      <li data-toggle="modal" data-target="#coolStuffModal" style="cursor:pointer"><img class="dashboard_icon" src="img/team.svg">
-                        <a class="dashboard_link" style="">Add Profile image</a></li>
-                      <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "  href="contact.html"> Contact Us</a></li>
-                      <li> <img class="dashboard_icon" src="img/logout.png"> <a class="dashboard_link" href="index.html"> Log Out</a></li>
-                    </ul>
+                <div class="choked">
+                  <img class="budget-logo" src="img/logo normal.png">
+                  <br>
+                  <br>
+                  <ul class="dashboad_nav">
+                    <li> <img class="dashboard_icon" src="img/home.svg"> <a class="dashboard_link " href="index.html">
+                        Home</a></li>
+                    <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link active" href="">
+                        Dashboard</a></li>
+                    <li> <img class="dashboard_icon" src="img/budg.png"> <a class="dashboard_link" href=""> Budget</a>
+                      <ul>
+                        <li> <a class="dashboard_link small small_link" href="dashboard.php"> New Budget</a> </li>
+                        <li> <a class="dashboard_link small small_link" href="history.php"> Budget History</a> </li>
+                      </ul>
+                    </li>
+                    <li> <img class="dashboard_icon" src="img/team.svg"> <a class="dashboard_link " href="team.html">
+                        The Team</a></li>
+                    <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
+                        href="contact.html"> Contact Us</a></li>
+                        <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
+                          href="reviews.html"> Reviews</a></li>
+                          <li> <img class="dashboard_icon" src="img/brick.png"> <a class="dashboard_link "
+                            href="faq.html"> FAQs</a></li>
+                        <li> <img class="dashboard_icon" src="img/logout.png"> <a class="dashboard_link"
+                        href="logout.php"> Log Out</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
+            
             </div>
           </div>
           <br>
